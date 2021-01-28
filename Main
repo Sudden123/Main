@@ -1,0 +1,95 @@
+package Yatzy;
+
+import java.util.Scanner;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		System.out.println("Welcome.. let's start");
+
+		
+
+			int min = 1;
+			int max = 5;
+			int range = max - min + 1;
+
+			int[] rand = new int[range];
+			Dice val = new Dice();
+
+			// Sätter in värde i varje låda i array.
+			for (int i = 0; i < rand.length; i++) {
+				rand[i] = (int) (val.getToss());
+			}
+			// Skriver ut varje siffra.
+			for (int j = 0; j < rand.length; j++) {
+				System.out.println("The " + (j + 1) + " number is: " + rand[j]);
+			}
+			
+			while(true) {
+			int r = Menu.yatzyMenu();
+			
+			Scanner scan = new Scanner(System.in);
+			System.out.println("How many dices do you want to re-roll?: ");
+			int reroll = scan.nextInt();
+			
+			switch (r) {
+
+			case 1:
+
+				System.out.println("You wanted to re-roll the first dice");
+				rand[0] = val.getToss();
+				System.out.println("Your new number is: " + rand[0]);
+				for (int j = 0; j < rand.length; j++) {
+					System.out.println("The " + (j + 1) + " number is: " + rand[j]);
+				}
+
+				break;
+
+			case 2:
+
+				System.out.println("You wanted to re-roll the second dice");
+				rand[1] = val.getToss();
+				System.out.println("Your new number is: " + rand[1]);
+				for (int j = 0; j < rand.length; j++) {
+					System.out.println("The " + (j + 1) + " number is: " + rand[j]);
+				}
+				break;
+			case 3:
+
+				System.out.println("You wanted to re-roll the third dice");
+				rand[2] = val.getToss();
+				System.out.println("Your new number is: " + rand[2]);
+				for (int j = 0; j < rand.length; j++) {
+					System.out.println("The " + (j + 1) + " number is: " + rand[j]);
+				}
+				break;
+			case 4:
+
+				System.out.println("You wanted to re-roll the fourth dice");
+				rand[3] = val.getToss();
+				System.out.println("Your new number is: " + rand[3]);
+				for (int j = 0; j < rand.length; j++) {
+					System.out.println("The " + (j + 1) + " number is: " + rand[j]);
+				}
+				break;
+			case 5:
+
+				System.out.println("You wanted to re-roll the fifth dice");
+				rand[4] = val.getToss();
+				System.out.println("Your new number is: " + rand[4]);
+				for (int j = 0; j < rand.length; j++) {
+					System.out.println("The " + (j + 1) + " number is: " + rand[j]);
+				}
+				break;
+			case 6:
+				System.out.println("You wanted to keep your numbers");
+				break;
+			
+			}
+			}
+
+	}
+
+}

@@ -1,0 +1,15 @@
+package Yatzy;
+
+import java.util.Scanner;
+
+public class Menu {
+	
+	public static int yatzyMenu() {
+		System.out.println("Do you want to re-roll?\n1. Yes, dice 1 \n2. Yes, dice 2 \n3. Yes, dice 3 \n4. Yes, dice 4 \n5. Yes, dice 5 \n6. No");
+		Scanner scan = new Scanner(System.in);
+		int r = scan.nextInt();		
+		
+		return r;
+		
+	}
+}

@@ -1,0 +1,23 @@
+package Yatzy;
+
+public class Dice {
+
+	public int diceValue;
+
+	/**
+	 * Sätter tärningarnas värde till 0 efter avslutad kastomgång
+	 **/
+	public Dice() {
+		diceValue = 0;
+	}
+
+	/**
+	 * Randomiserar tärningarna. Tärningen slås. Retunerar värdet på tärningen.
+	 * Värdet sparas.
+	 **/
+	public int getToss() {
+		diceValue = (int) (Math.random() * 6) + 1;
+		return diceValue;
+	}
+
+}

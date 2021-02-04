@@ -1,0 +1,13 @@
+package Yatzy;
+
+public class ResultGenerator {
+	public int getResult(int[] RollDice, int i) {
+		Calc a = new Calc();
+		int result = a.ettor(RollDice);
+		return result;
+
+
+	}
+	
+	
+}

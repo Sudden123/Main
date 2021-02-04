@@ -1,0 +1,56 @@
+package Yatzy;
+
+public class Calc {
+	public int sum(int[] RollDice) {
+		int sum = 0;
+		
+		for (int i= 0; i < RollDice.length; i++)
+		{
+	     sum = sum + RollDice[i];
+		}
+		 return sum;
+	   }
+	//olika metoder ör de olika . Vi anropar från main den mtod som vi vill spara vårt resultat i . Då använder vi switch.
+	
+	public int ettor(int[] RollDice) {
+	int sum1 = 0;
+		
+		for (int i= 0; i < RollDice.length; i++)
+		{
+			if (RollDice[i]==1){
+				sum1 = sum1 + RollDice[i];
+				
+			}
+			
+		}
+		 return sum1;
+	 }
+	
+	public int tvåor(int[] RollDice) {
+		int sum2 = 0;
+			
+			for (int i= 0; i < RollDice.length; i++)
+			{
+				if (RollDice[i]==2){
+					sum2 = sum2 + RollDice[i];
+					
+				}
+				
+			}
+			 return sum2;
+		 }
+	
+	public int treor(int[] RollDice) {
+		int sum3 = 0;
+			
+			for (int i= 0; i < RollDice.length; i++)
+			{
+				if (RollDice[i]==3){
+					sum3 = sum3 + RollDice[i];
+					
+				}
+				
+			}
+			 return sum3;
+		 }
+	}

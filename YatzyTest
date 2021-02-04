@@ -1,0 +1,69 @@
+package Yatzy;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+class YatzyTest {
+
+	@Test
+	public void chance() {
+		// Arrange
+		
+		int[] RollDice = {6,3,1,3,5};
+		// Act
+		Calc a = new Calc();
+		int result = a.sum(RollDice);
+		
+		// Assert 
+		assertEquals(18, result);
+	}
+	
+	
+	//testfall hänger utanför, de kommer bara testa delar av programmet. Därflr skjuter vi in värden. Test är delat från de verkliga programmet!!
+	//Därför kommer våra variabler att vara förbestämda.
+	
+	@Test
+	public void ettor() {
+		// Arrange
+		
+		int[] RollDice = {6,3,1,3,5};
+		// Act
+		Calc a = new Calc();
+		int result = a.ettor(RollDice);
+	
+		// Assert 
+		assertEquals(1, result);
+		
+	}
+
+	@Test
+	public void tooooos() {
+		// Arrange
+		
+				int[] RollDice = {6,3,1,3,5};
+				// Act
+				Calc a = new Calc();
+				int result = a.tvåor(RollDice);
+
+				
+				// Assert 
+				assertEquals(0, result);
+		
+	}
+	@Test
+	public void treor() {
+		// Arrange
+		
+				int[] RollDice = {6,3,1,3,5};
+				// Act
+				Calc a = new Calc();
+				int result = a.treor(RollDice);
+				
+				// Assert 
+				assertEquals(6, result);
+		
+	}
+}

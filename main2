@@ -1,0 +1,182 @@
+package Yatzy;
+//import java.util.Scanner;
+
+//BUGG: Ofta när en av diceNumber-variablerna är =1 hoppar exekveraren in i if-satsen. Vet ej varför.
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		int [] score = new int[5];
+
+
+	    
+		int diceNumber = 7;
+		int diceNumber2 = 7;
+		int diceNumber3 = 7;
+		int diceNumber4 = 7;
+		int diceNumber5 = 7;
+		int reroll = 2;
+		
+
+		System.out.println("Welcome.. let's start");
+
+		Dice val = new Dice();
+		int[] RollDice = new int[5];
+
+		for(
+		int i = 0;i<RollDice.length;i++)
+		{
+			RollDice[i] = (int) (val.getToss());
+		}
+
+		System.out.println("----------------------------------------------------------------");
+		for(int j = 0;j<RollDice.length;j++)
+		{
+			System.out.println("The " + (j + 1) + " number is: " + RollDice[j]);
+		}
+		System.out.println("----------------------------------------------------------------");
+
+		while(reroll>0)
+		{
+			System.out.println("Do you want to re-roll? yes/no");
+			String awnser = Menu.choise();
+
+			switch (awnser) {
+			case "no":
+				System.out.println("Okay");
+				reroll = 0;
+				break;
+
+			case "yes":
+
+				System.out.println("How many dices do you want to re-roll?: ");
+				int r = Menu.yatzyMenu();
+
+				switch (r) {
+				// Fall through loop skapas om man tar bort "break;" kommandot.
+				case 5:
+
+					System.out.println("Collect die");
+					diceNumber = Menu.yatzyMenu();
+					diceNumber = diceNumber - 1;
+					RollDice[diceNumber] = val.getToss();
+
+				case 4:
+
+					System.out.println("Collect die");
+					diceNumber2 = Menu.yatzyMenu();
+					diceNumber2 = diceNumber2 - 1;
+
+					if (diceNumber2 == diceNumber) {
+						System.out.println("You can not reroll the same dice");
+						reroll++;
+						break;
+					}
+
+					else {
+						RollDice[diceNumber2] = val.getToss();
+					}
+
+				case 3:
+
+					System.out.println("Collect die");
+					diceNumber3 = Menu.yatzyMenu();
+					diceNumber3 = diceNumber3 - 1;
+
+					if (diceNumber3 == diceNumber2 || diceNumber3 == diceNumber) {
+						System.out.println("You can not reroll the same dice");
+						reroll++;
+						break;
+					}
+
+					else {
+						RollDice[diceNumber3] = val.getToss();
+					}
+
+				case 2:
+
+					System.out.println("Collect die");
+					diceNumber4 = Menu.yatzyMenu();
+					diceNumber4 = diceNumber4 - 1;
+
+					if (diceNumber4 == diceNumber3 || diceNumber4 == diceNumber2 || diceNumber4 == diceNumber) {
+						System.out.println("You can not reroll the same dice");
+						reroll++;
+						break;
+					}
+
+					else {
+						RollDice[diceNumber4] = val.getToss();
+					}
+
+				case 1:
+
+					System.out.println("Collect die");
+					diceNumber5 = Menu.yatzyMenu();
+					diceNumber5 = diceNumber5 - 1;
+
+					if (diceNumber5 == diceNumber4 || diceNumber5 == diceNumber3 || diceNumber5 == diceNumber2
+							|| diceNumber5 == diceNumber) {
+						System.out.println("You can not reroll the same dice");
+						reroll++;
+						break;
+					}
+
+					else {
+
+						RollDice[diceNumber5] = val.getToss();
+					}
+					break;
+
+				default:
+					System.out.println("Choose 1-5");
+					reroll++;
+					break;
+
+				}
+
+				System.out.println("----------------------------------------------------------------");
+				for (int l = 0; l < RollDice.length; l++) {
+					System.out.println("The " + (l + 1) + " number is: " + RollDice[l]);					
+				}
+				System.out.println("----------------------------------------------------------------");
+				reroll--;
+			}
+		
+			}
+		Calc a = new Calc();
+		int result = a.sum(RollDice);
+		System.out.println(result);
+		
+		//Här kommer ny switch in  med anrop på metoderna som finns i calc.
+		
+		System.out.println("Which category to save score in?");
+		String q = Menu.choise();
+		switch(q) {
+		case "ones":
+			System.out.println("You have choosen to save in ones");
+			score[0] = a.ettor(RollDice);	
+			System.out.println(score[0]);
+			break;
+			
+			
+		case "twos":
+			
+			
+		case "threes":
+			
+			
+		case "fours":
+			
+			
+		case "fives":
+			
+			
+		default: 
+			System.out.println("Choose a valid category");
+		}
+
+	}
+
+}
